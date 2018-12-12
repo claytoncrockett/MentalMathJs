@@ -46,7 +46,9 @@ class Problem extends React.Component {
   render() {
     return (
       <div class="movingItem" ref={this.myRef}>
-        <h1>Game</h1>
+        <h1>
+          {this.props.numberOne} + {this.props.numberTwo}
+        </h1>
       </div>
     );
   }

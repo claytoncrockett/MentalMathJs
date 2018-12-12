@@ -5,8 +5,8 @@ class Game extends React.Component {
   state = { answers: [], problems: [] };
 
   makeNewItem = () => {
-    let x = Math.floor(Math.random(1, 10));
-    let y = Math.floor(Math.random(1, 10));
+    let x = Math.floor(Math.random() * 10) + 1;
+    let y = Math.floor(Math.random() * 10) + 1;
     let ans = x + y;
     this.setState({
       answers: [...this.state.answers, ans],
@@ -23,10 +23,10 @@ class Game extends React.Component {
   }
 
   render() {
-    const { answers } = this.state;
+    const { answers, problems } = this.state;
     return (
       <div id="game">
-        {answers.map(problem => {
+        {problems.map(problem => {
           return (
             <Problem key={1} numberOne={problem[0]} numberTwo={problem[1]} />
           );
