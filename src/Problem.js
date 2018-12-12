@@ -31,8 +31,8 @@ class Problem extends React.Component {
   };
 
   start = el => {
-    el.style.left = el.offsetLeft + Math.floor(Math.random() * 500) + "px";
-    el.style.top = el.offsetTop + Math.floor(Math.random() * 400) + "px";
+    el.style.left = Math.floor(Math.random() * 900) + "px";
+    el.style.top = Math.floor(Math.random() * 700) + "px";
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class Problem extends React.Component {
   }
   render() {
     return (
-      <div class="movingItem" ref={this.myRef}>
+      <div className="movingItem" ref={this.myRef}>
         <h1>
           {this.props.numberOne} + {this.props.numberTwo}
         </h1>

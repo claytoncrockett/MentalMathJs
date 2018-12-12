@@ -2,20 +2,25 @@ import React from "react";
 import Problem from "./Problem";
 
 class Game extends React.Component {
-  state = { answers: [], problems: [] };
+  state = { answers: [], problems: [], playing: true, id: 0 };
 
   makeNewItem = () => {
     let x = Math.floor(Math.random() * 10) + 1;
     let y = Math.floor(Math.random() * 10) + 1;
     let ans = x + y;
+    const id = this.state.id;
+
     this.setState({
       answers: [...this.state.answers, ans],
-      problems: [...this.state.problems, [x, y]]
+      problems: [...this.state.problems, [x, y, id]],
+      id: this.state.id + 1
     });
 
-    setTimeout(() => {
-      this.makeNewItem();
-    }, 5000);
+    if (this.state.answers.length < 5) {
+      setTimeout(() => {
+        this.makeNewItem();
+      }, 10000);
+    }
   };
 
   componentDidMount() {
@@ -26,11 +31,16 @@ class Game extends React.Component {
     const { answers, problems } = this.state;
     return (
       <div id="game">
-        {problems.map(problem => {
-          return (
-            <Problem key={1} numberOne={problem[0]} numberTwo={problem[1]} />
-          );
-        })}
+        {this.state.playing &&
+          problems.map(problem => {
+            return (
+              <Problem
+                key={problem[2]}
+                numberOne={problem[0]}
+                numberTwo={problem[1]}
+              />
+            );
+          })}
       </div>
     );
   }

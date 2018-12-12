@@ -10,7 +10,7 @@
 
 #game {
   position: relative;
-  width: 100vw;
-  min-height: 50vh;
+  width: 1000px;
+  height: 800px;
   background-color: darkcyan;
 }
