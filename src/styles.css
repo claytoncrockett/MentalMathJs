@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-#movingItem {
+.movingItem {
   position: absolute;
   color: white;
 }
