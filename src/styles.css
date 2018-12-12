@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#movingItem {
+  position: absolute;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  min-height: 50vh;
+  background-color: grad;
+}
