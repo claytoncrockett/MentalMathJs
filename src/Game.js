@@ -6,19 +6,15 @@ class Game extends React.Component {
   collisionCheck = (el, bounding) => {
     const { vx, vy } = this.state;
     if (el.offsetLeft <= 0 && vx < 0) {
-      console.log("LEFT");
       this.setState({ vx: -1 * vx });
     }
     if (el.offsetLeft + el.offsetWidth >= bounding.offsetWidth) {
-      console.log("RIGHT");
       this.setState({ vx: -1 * vx });
     }
     if (el.offsetTop <= 0 && vy < 0) {
-      console.log("TOP");
       this.setState({ vy: -1 * vy });
     }
     if (el.offsetTop + el.offsetHeight >= bounding.offsetHeight) {
-      console.log("BOTTOM");
       this.setState({ vy: -1 * vy });
     }
   };
@@ -29,15 +25,17 @@ class Game extends React.Component {
     el.style.top = el.offsetTop + this.state.vy + "px";
     setTimeout(() => {
       this.mover(el, bounding);
-    }, 5);
+    }, 10);
   };
+
+  makeNewItem = () => {};
 
   componentDidMount() {
     const bouncer = document.getElementById("movingItem");
     const windowContainer = document.getElementById("game");
     setTimeout(() => {
       this.mover(bouncer, windowContainer);
-    }, 5);
+    }, 10);
   }
 
   render() {

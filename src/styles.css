@@ -5,11 +5,12 @@
 
 #movingItem {
   position: absolute;
+  color: white;
 }
 
 #game {
   position: relative;
   width: 100vw;
   min-height: 50vh;
-  background-color: grad;
+  background-color: darkcyan;
 }
