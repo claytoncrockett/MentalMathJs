@@ -15,7 +15,7 @@ class Game extends React.Component {
 
     setTimeout(() => {
       this.makeNewItem();
-    }, 2000);
+    }, 5000);
   };
 
   componentDidMount() {

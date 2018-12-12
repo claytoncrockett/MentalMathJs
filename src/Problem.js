@@ -1,7 +1,7 @@
 import React from "react";
 
 class Problem extends React.Component {
-  state = { vx: 2, vy: 3 };
+  state = { vx: 3, vy: 3 };
 
   myRef = React.createRef();
 
@@ -30,9 +30,15 @@ class Problem extends React.Component {
     }, 10);
   };
 
+  start = el => {
+    el.style.left = el.offsetLeft + Math.floor(Math.random() * 500) + "px";
+    el.style.top = el.offsetTop + Math.floor(Math.random() * 400) + "px";
+  };
+
   componentDidMount() {
     const bouncer = this.myRef.current;
     const windowContainer = document.getElementById("game");
+    this.start(bouncer);
     setTimeout(() => {
       this.mover(bouncer, windowContainer);
     }, 10);
