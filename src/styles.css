@@ -6,6 +6,7 @@
 .movingItem {
   position: absolute;
   color: white;
+  z-index: 2;
 }
 
 #game {
@@ -13,4 +14,16 @@
   width: 1000px;
   height: 800px;
   background-color: darkcyan;
+}
+
+#answer {
+  position: absolute;
+  bottom: 0px;
+  right: 50%;
+  z-index: 1.5;
+}
+
+#answertext {
+  font-size: 75px;
+  color: black;
 }
