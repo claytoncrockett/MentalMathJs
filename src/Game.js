@@ -8,7 +8,8 @@ class Game extends React.Component {
     playing: true,
     id: 0,
     userAnswer: "",
-    score: 0
+    score: 0,
+    speed: 5000
   };
 
   makeNewItem = () => {
@@ -16,18 +17,18 @@ class Game extends React.Component {
     let y = Math.floor(Math.random() * 10) + 1;
     let ans = x + y;
     const id = this.state.id;
-
-    this.setState({
-      answers: [...this.state.answers, ans],
-      problems: [...this.state.problems, [x, y, id]],
-      id: this.state.id + 1
-    });
+    if (this.state.answers.length < 10) {
+      this.setState({
+        answers: [...this.state.answers, ans],
+        problems: [...this.state.problems, [x, y, id]],
+        id: this.state.id + 1,
+        speed: this.state.speed * 0.98
+      });
+    }
 
     setTimeout(() => {
-      if (this.state.answers.length < 10) {
-        this.makeNewItem();
-      }
-    }, 10000);
+      this.makeNewItem();
+    }, this.state.speed);
   };
 
   checkForAnswer = answerCheck => {
