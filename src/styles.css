@@ -27,3 +27,11 @@
   font-size: 75px;
   color: black;
 }
+
+#score {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  color: white;
+  font-size: 45px;
+}
