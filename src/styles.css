@@ -7,12 +7,51 @@
   position: absolute;
   color: white;
   z-index: 2;
+  animation: colorchange;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+@keyframes colorchange {
+  0% {
+    color: white;
+  }
+  15% {
+    color: white;
+  }
+  25% {
+    color: limegreen;
+  }
+
+  50% {
+    color: yellow;
+  }
+  60% {
+    transform: scale(1);
+  }
+  70% {
+    color: red;
+    transform: scale(2);
+  }
+  80% {
+    color: red;
+    transform: rotate(45deg) scale(2);
+  }
+  90% {
+    color: red;
+    transform: rotate(-45deg) scale(2);
+  }
+  100% {
+    color: red;
+    transform: rotate(45deg) scale(2);
+  }
 }
 
 #game {
   position: relative;
-  width: 1000px;
-  height: 800px;
+  width: 98vw;
+  height: 98vh;
   background-color: darkcyan;
 }
 

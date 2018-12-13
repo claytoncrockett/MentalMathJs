@@ -22,7 +22,7 @@ class Game extends React.Component {
         answers: [...this.state.answers, ans],
         problems: [...this.state.problems, [x, y, id]],
         id: this.state.id + 1,
-        speed: this.state.speed * 0.98
+        speed: this.state.speed * 0.95
       });
     }
 

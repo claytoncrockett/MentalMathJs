@@ -1,7 +1,7 @@
 {
   "name": "mental-math",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple mental math game to test your skills! Built in React",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
