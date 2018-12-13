@@ -72,13 +72,35 @@
   top: 0;
   left: 20px;
   color: white;
-  font-size: 45px;
+  font-size: 3.7vw;
 }
 
 .score-end {
   position: absolute;
   top: 45%;
-  left: 45%;
+  left: 42%;
   transform: scale(2.5);
   transition: linear 2s;
+}
+
+.gameover {
+  position: absolute;
+  top: 15%;
+  left: 23%;
+  animation: fadein;
+  animation-duration: 4s;
+  color: orangered;
+  font-size: 10vw;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -97,6 +97,7 @@ class Game extends React.Component {
     if (!this.state.playing) score += " score-end";
     return (
       <div id="game">
+        {!this.state.playing && <div className="gameover">Game Over</div>}
         <div className={score}>Score: {this.state.score}</div>
         {this.state.playing &&
           problems.map(problem => {
