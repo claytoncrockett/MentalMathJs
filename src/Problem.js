@@ -25,7 +25,7 @@ class Problem extends React.Component {
     this.collisionCheck(el, bounding);
     el.style.left = el.offsetLeft + this.state.vx + "px";
     el.style.top = el.offsetTop + this.state.vy + "px";
-    setTimeout(() => {
+    this.itemTimeout = setTimeout(() => {
       this.mover(el, bounding);
     }, 10);
   };
@@ -42,6 +42,14 @@ class Problem extends React.Component {
     setTimeout(() => {
       this.mover(bouncer, windowContainer);
     }, 10);
+    this.x = setTimeout(() => {
+      this.props.gameOver();
+    }, 20000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.x);
+    clearTimeout(this.itemTimeout);
   }
   render() {
     return (

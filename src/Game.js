@@ -31,6 +31,10 @@ class Game extends React.Component {
     }, this.state.speed);
   };
 
+  gameOver = () => {
+    this.setState({ playing: false });
+  };
+
   checkForAnswer = answerCheck => {
     const arr = this.state.answers;
     for (let i = 0; i < arr.length; i++) {
@@ -87,10 +91,13 @@ class Game extends React.Component {
   }
 
   render() {
-    const { answers, problems } = this.state;
+    const { problems } = this.state;
+    let score = "score";
+
+    if (!this.state.playing) score += " score-end";
     return (
       <div id="game">
-        <div id="score">Score: {this.state.score}</div>
+        <div className={score}>Score: {this.state.score}</div>
         {this.state.playing &&
           problems.map(problem => {
             return (
@@ -98,6 +105,7 @@ class Game extends React.Component {
                 key={problem[2]}
                 numberOne={problem[0]}
                 numberTwo={problem[1]}
+                gameOver={this.gameOver}
               />
             );
           })}

@@ -40,11 +40,11 @@
   }
   90% {
     color: red;
-    transform: rotate(-45deg) scale(2);
+    transform: rotate(-45deg) scale(2.5);
   }
   100% {
     color: red;
-    transform: rotate(45deg) scale(2);
+    transform: rotate(45deg) scale(3);
   }
 }
 
@@ -67,10 +67,18 @@
   color: black;
 }
 
-#score {
+.score {
   position: absolute;
   top: 0;
   left: 20px;
   color: white;
   font-size: 45px;
+}
+
+.score-end {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: scale(2.5);
+  transition: linear 2s;
 }
