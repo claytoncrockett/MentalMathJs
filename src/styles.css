@@ -16,23 +16,27 @@
 @keyframes colorchange {
   0% {
     color: white;
+    transform: scale(1) rotate(0deg);
   }
   15% {
     color: white;
+    transform: scale(1) rotate(0deg);
   }
   25% {
     color: limegreen;
+    transform: scale(1) rotate(0deg);
   }
 
   50% {
     color: yellow;
+    transform: scale(1) rotate(0deg);
   }
   60% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
   }
   70% {
     color: red;
-    transform: scale(2);
+    transform: scale(2) rotate(0deg);
   }
   80% {
     color: red;
