@@ -9,15 +9,16 @@ class Game extends React.Component {
     id: 0,
     userAnswer: "",
     score: 0,
-    speed: 5000
+    speed: 5000,
+    scoreInc: 1
   };
 
   makeNewItem = () => {
-    let x = Math.floor(Math.random() * 10) + 1;
-    let y = Math.floor(Math.random() * 10) + 1;
+    let x = Math.floor(Math.random() * 15) + 1;
+    let y = Math.floor(Math.random() * 15) + 1;
     let ans = x + y;
     const id = this.state.id;
-    if (this.state.answers.length < 10) {
+    if (this.state.answers.length < 20) {
       this.setState({
         answers: [...this.state.answers, ans],
         problems: [...this.state.problems, [x, y, id]],
@@ -26,22 +27,27 @@ class Game extends React.Component {
       });
     }
 
-    setTimeout(() => {
+    this.spawnNew = setTimeout(() => {
       this.makeNewItem();
     }, this.state.speed);
   };
 
   gameOver = () => {
+    clearTimeout(this.incrementScoreTimer);
     this.setState({ playing: false });
   };
 
   checkForAnswer = answerCheck => {
     const arr = this.state.answers;
+    clearTimeout(this.spawnNew);
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === answerCheck) {
-        this.setState({ score: this.state.score + 1 });
+        this.setState({ score: this.state.score + 50 });
       }
     }
+    this.spawnNew = setTimeout(() => {
+      this.makeNewItem();
+    }, 500);
   };
 
   handleSubmit = () => {
@@ -81,8 +87,16 @@ class Game extends React.Component {
     }
   };
 
+  incrementScore = () => {
+    this.incrementScoreTimer = setTimeout(() => {
+      this.setState({ score: this.state.score + this.state.scoreInc });
+      this.incrementScore();
+    }, 100);
+  };
+
   componentDidMount() {
     this.makeNewItem();
+    this.incrementScore();
     document.addEventListener("keydown", this.handleKey);
   }
 

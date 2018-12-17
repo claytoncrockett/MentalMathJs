@@ -31,8 +31,10 @@ class Problem extends React.Component {
   };
 
   start = el => {
-    el.style.left = Math.floor(Math.random() * 900) + "px";
-    el.style.top = Math.floor(Math.random() * 700) + "px";
+    el.style.left =
+      Math.floor(Math.random() * (window.innerWidth - 150)) + "px";
+    el.style.top =
+      Math.floor(Math.random() * (window.innerHeight - 150)) + "px";
   };
 
   componentDidMount() {
